@@ -3,6 +3,7 @@ name = "price-tracker"
 version = "1.0.0"
 description = "Polite book price scraper with SQLite price history and Excel/CSV reports"
 requires-python = ">=3.11"
+license = "MIT"
 
 [project.scripts]
 price-tracker = "price_tracker.cli:main"

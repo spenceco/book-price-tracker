@@ -196,3 +196,7 @@ The polite client, history database, change detection, reports and deployment ca
 This project targets a site made for scraping practice. For any real site, check its
 terms of service and `robots.txt`, keep the request rate low, and set
 `PRICE_TRACKER_USER_AGENT` so it includes your contact details.
+
+## License
+
+[MIT](LICENSE)
