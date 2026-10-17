@@ -1,0 +1,8 @@
+# Everything needed to run the tests, linters and screenshot script
+-r requirements.txt
+pytest==9.1.1
+ruff==0.17.1
+mypy==2.4.0
+types-beautifulsoup4
+types-openpyxl
+pillow>=10

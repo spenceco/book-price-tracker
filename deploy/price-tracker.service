@@ -1,0 +1,20 @@
+# systemd service: runs ONE scrape and exits. The .timer file decides when.
+[Unit]
+Description=price-tracker: scrape books.toscrape.com and export reports
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=ubuntu
+WorkingDirectory=/home/ubuntu/price-tracker
+ExecStart=/home/ubuntu/price-tracker/.venv/bin/python -m price_tracker --output-dir output
+# Be a good neighbour on a shared box
+Nice=10
+IOSchedulingClass=idle
+TimeoutStartSec=30min
+# Basic hardening: read-only system, writable only where the app keeps its files
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=/home/ubuntu/price-tracker/output /home/ubuntu/price-tracker/data /home/ubuntu/price-tracker/logs
